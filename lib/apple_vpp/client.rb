@@ -150,10 +150,10 @@ module AppleVPP
         users.concat( resp['users'] ) if resp['users']
 
         batch_token = resp['batchToken']
-        since_modified_token = resp['sinceModifiedToken']
+        since_modified_token = resp['batchToken']
       end while batch_token
       { 
-        licenses: AppleSerializer.to_ruby(users),
+        users: AppleSerializer.to_ruby(users),
         since_modified_token: since_modified_token
       }
     end
